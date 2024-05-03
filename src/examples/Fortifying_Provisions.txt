@@ -1,0 +1,5 @@
+Fortifying Provisions {2}{W}
+Enchantment
+Creatures you control get +0/+1.
+When Fortifying Provisions enters the battlefield, create a Food token.
+

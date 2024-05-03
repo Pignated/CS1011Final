@@ -1,0 +1,4 @@
+Stangg {4}{R}{G}
+Legendary Creature — Human Warrior
+When Stangg enters the battlefield, create Stangg Twin, a legendary 3/4 red and green Human Warrior creature token. Exile that token when Stangg leaves the battlefield. Sacrifice Stangg when that token leaves the battlefield.
+3/4

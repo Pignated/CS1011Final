@@ -24,14 +24,13 @@ public class Land extends Card {
      * Constructor for land cards
      */
     public Land(){
-        System.out.println("Is the land basic? (y/n)");
         System.out.println("Is the land legendary? (y/n)");
         isLegendary = pignated.GeneralUse.getYN();
         System.out.println("Is the land snow? (y/n)");
         isSnow = pignated.GeneralUse.getYN();
-        System.out.println("Is the creature an artifact? (y/n)");
+        System.out.println("Is the land an artifact? (y/n)");
         isArtifact = pignated.GeneralUse.getYN();
-        System.out.println("Is the creature an enchantment? (y/n)");
+        System.out.println("Is the land an enchantment? (y/n)");
         isEnchantment = pignated.GeneralUse.getYN();
         name = pignated.GeneralUse.getStringWithSpaces("the land's name");
         subtypes = pignated.GeneralUse.getStringWithSpaces("the land's subtypes");
@@ -47,7 +46,7 @@ public class Land extends Card {
         cardString.append(name).append("\n").append(isLegendary ? "Legendary " : "")
                 .append(isSnow ? "Snow " : "").append(isEnchantment ? "Enchantment " : "")
                 .append(isArtifact ? "Artifact " : "").append("Land")
-                .append(subtypes.isEmpty() ? " — ":"")
+                .append(subtypes.isEmpty() ? "":" — ")
                 .append(subtypes).append("\n").append(abilityString);
         return cardString.toString();
     }
@@ -55,5 +54,9 @@ public class Land extends Card {
     @Override
     public String getName() {
         return name;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Land && ((Card) obj).getName().equals(this.getName());
     }
 }

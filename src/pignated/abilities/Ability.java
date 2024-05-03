@@ -32,16 +32,22 @@ public abstract class Ability implements Serializable {
             cost = new StringBuilder("{T}");
         }
         System.out.println("Is there non-mana/tap costs? (y/n)");
-        boolean more = true;
-        while(more) {
-            if (GeneralUse.getYN()) {
+        boolean more;
+        if (GeneralUse.getYN()) {
+            if (!cost.isEmpty()) {
+                cost.append(", ");
+            }
+            cost.append(GeneralUse.getStringWithSpaces("additional cost text"));
+            System.out.println("Are there more non-mana/tap costs? (y/n)");
+            more = GeneralUse.getYN();
+            while (more) {
                 if (!cost.isEmpty()) {
                     cost.append(", ");
                 }
                 cost.append(GeneralUse.getStringWithSpaces("additional cost text"));
+                System.out.println("Are there more non-mana/tap costs? (y/n)");
+                more = GeneralUse.getYN();
             }
-            System.out.println("Are there more non-mana/tap costs? (y/n)");
-            more = GeneralUse.getYN();
         }
         return cost.toString();
     }
@@ -79,7 +85,7 @@ public abstract class Ability implements Serializable {
                 return new Keyword();
             }
         } else {
-            System.out.println("Is the  activated? (y/n)");
+            System.out.println("Is the ability activated? (y/n)");
             if(GeneralUse.getYN()){
                 return new ActivatedAbility();
             } else {

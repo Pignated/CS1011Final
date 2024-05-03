@@ -11,18 +11,19 @@ import pignated.Color;
 /**
  * Class for keywords with a cost
  */
-public class KeywordCost extends Keyword {
+public class KeywordCost extends Ability {
     private final String cost;
+    private final String keyword;
     /**
      * Constructor for keywords with a cost
      */
     public KeywordCost(){
-        this.setKeyword(pignated.GeneralUse.getStringWithSpaces("the keyword"));
+        this.keyword = pignated.GeneralUse.getStringWithSpaces("the keyword");
         cost = Color.getColorCost();
     }
 
     @Override
     public String toString() {
-        return super.toString() + " " + cost;
+        return keyword + " " + cost;
     }
 }

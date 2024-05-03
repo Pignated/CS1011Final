@@ -47,11 +47,15 @@ public class Planeswalker extends Card {
                 .append(isLegendary ? "Legendary " : "")
                 .append("Planeswalker")
                 .append(subtypes.isEmpty() ? "":" — ")
-                .append(subtypes).append("\n")
+                .append(subtypes)
                 .append(abilityString).append("Loyalty: ").append(loyalty);
         return cardString.toString();
     }
     public String getName(){
         return name;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Planeswalker && ((Card) obj).getName().equals(this.getName());
     }
 }

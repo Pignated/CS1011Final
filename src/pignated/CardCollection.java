@@ -9,12 +9,12 @@ package pignated;
 
 import pignated.cards.Card;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.io.File;
+
 /**
  * A collection of cards
  */
@@ -31,7 +31,20 @@ public class CardCollection implements Serializable {
      * @param card the card to add
      */
     public void addCard(Card card) {
-        cards.add(card);
+        boolean alreadyExists = false;
+        for (Card c : cards) {
+            if (alreadyExists) {
+                return;
+            }
+            if (c.equals(card)) {
+                alreadyExists = true;
+            }
+        }
+        if(!alreadyExists) {
+            cards.add(card);
+        } else {
+            System.out.println("Card already exists in collection");
+        }
     }
     /**
      * Removes a card from the collection
@@ -68,37 +81,53 @@ public class CardCollection implements Serializable {
             System.out.println(card.getName());
         }
     }
+    private void saveCard(Card card) {
+        String fileName = card.getName().
+                replace(" ", "_").replace(",", "")+".txt";
+        File dir = new File(".\\src\\examples");
+        if (!dir.exists()) {
+            if(dir.mkdirs()) {
+                System.out.println("Directory created");
+            }
+        }
+
+        try {
+
+            File file = new File(dir, fileName);
+            PrintWriter out = new PrintWriter(file);
+            out.println(card);
+            out.close();
+        } catch (IOException e) {
+            System.out.println("Error saving card");
+            System.out.println(e.getMessage());
+        }
+    }
+    /**
+     * Saves all cards to files
+     */
+    public void allCardsOut() {
+        for (Card card : cards) {
+            saveCard(card);
+        }
+    }
     /**
      * Saves a card to a file
      */
     public void cardOut() {
         String name = GeneralUse.getStringWithSpaces("card name");
-        Card cardToSave = null;
         boolean wasFound = false;
         for (Card card : cards) {
             if (wasFound){
                 return;
             }
-            if (card.getName().equals(name)) {
+            if (card.getName().equalsIgnoreCase(name)) {
                 System.out.println("card located");
-                cardToSave = card;
                 wasFound = true;
+                saveCard(card);
             }
         }
         if (!wasFound) {
             System.out.println("Card not found");
-        } else {
-            System.out.println("Enter the file name to save the card to: ");
-            String fileName = GeneralUse.getStringWithSpaces("")+".txt";
-            File file = new File(fileName);
-
-            try {
-                PrintWriter out = new PrintWriter(new FileOutputStream(file));
-                out.println(cardToSave);
-                out.close();
-            } catch (IOException e) {
-                System.out.println("Error saving card");
-            }
         }
 
     }

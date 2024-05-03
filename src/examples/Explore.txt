@@ -1,0 +1,5 @@
+Explore {1}{G}
+Sorcery
+You may play an additional card this turn
+Draw a card.
+

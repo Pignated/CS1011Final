@@ -1,7 +1,0 @@
-Teferi, Time Raveler {1}{W}{U}
-Legendary Planeswalker — Teferi
-Each opponent can cast spells only any time they could cast a sorcery.
-+1: Until your next turn, you may cast sorcery spells as though they had flash.
--3: Return up to one target artifact, creature, or enchantment to its owner's hand. Draw a card.
-Loyalty: 4
-Compare to: https://api.scryfall.com/cards/662fe50f-d75c-422c-8c6c-1f9b5c4ba21f?format=text&pretty=true

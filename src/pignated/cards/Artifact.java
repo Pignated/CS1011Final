@@ -42,7 +42,8 @@ public class Artifact extends Card {
         for (Ability ability: abilities) {
             abilityString.append(ability.toString()).append("\n");
         }
-        cardString.append(name).append(cost).append("\n").append(isLegendary ? "Legendary " : "")
+        cardString.append(name).append(" ").append(cost)
+                .append("\n").append(isLegendary ? "Legendary " : "")
                 .append(isSnow ? "Snow " : "").append("Artifact")
                 .append(isEnchantment ? "Enchantment " : "")
                 .append(subtype.isEmpty() ? "":" — ").append(subtype).append("\n")
@@ -52,6 +53,9 @@ public class Artifact extends Card {
     public String getName() {
         return name;
     }
-
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Artifact && ((Card) obj).getName().equals(this.getName());
+    }
 
 }

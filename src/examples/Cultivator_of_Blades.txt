@@ -1,0 +1,5 @@
+Cultivator of Blades {3}{GG}
+Creature — Elf Artificer
+Fabricate 2
+Whenever Cultivator of Blades attacks, you may have other attacking creatures get +X/+X until end of turn, where X is Cultivator of Blades's power.
+1/1

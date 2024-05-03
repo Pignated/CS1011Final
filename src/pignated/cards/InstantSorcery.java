@@ -43,7 +43,8 @@ public class InstantSorcery extends Card {
         for (Ability ability: abilities) {
             abilityString.append(ability.toString()).append("\n");
         }
-        cardString.append(name).append(cost).append("\n").append(isLegendary ? "Legendary " : "")
+        cardString.append(name).append(" ").append(cost)
+                .append("\n").append(isLegendary ? "Legendary " : "")
                 .append(isSnow ? "Snow " : "").append(isInstant ? "Instant " : "Sorcery")
                 .append(subtype.isEmpty() ? "":" — ").append(subtype).append("\n")
                 .append(abilityString);
@@ -51,5 +52,9 @@ public class InstantSorcery extends Card {
     }
     public String getName() {
         return name;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof InstantSorcery && ((Card) obj).getName().equals(this.getName());
     }
 }

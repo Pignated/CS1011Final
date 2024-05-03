@@ -52,8 +52,9 @@ public class Main {
             System.out.println("3. Search for a card");
             System.out.println("4. Delete a card");
             System.out.println("5. Save card to file");
-            System.out.println("6. Exit");
-            switch (GeneralUse.getInt(1, 3+3)) {
+            System.out.println("6. Save all cards to files");
+            System.out.println("7. Exit");
+            switch (GeneralUse.getInt(1, 3+1+3)) {
                 case 1:
                     collection.addCard(newCard());
                     saveCollection(collection);
@@ -72,6 +73,9 @@ public class Main {
                     collection.cardOut();
                     break;
                 case 3+3:
+                    collection.allCardsOut();
+                    break;
+                case 4+3:
                     cont = false;
                     break;
                 default:
@@ -86,8 +90,10 @@ public class Main {
                     "collection.bin"));
             out.writeObject(collection);
             out.close();
+            System.out.println("Collection saved");
         } catch (IOException e) {
             System.out.println("Error saving collection");
+            System.out.println(e.getMessage());
         }
     }
     private static Card newCard(){
@@ -129,6 +135,7 @@ public class Main {
         } else {
             card = new InstantSorcery();
         }
+        System.out.println(card);
         return card;
     }
 }

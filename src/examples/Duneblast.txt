@@ -1,0 +1,4 @@
+Duneblast {4}{W}{B}{G}
+Sorcery
+Choose up to one creature. Destroy the rest.
+

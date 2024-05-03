@@ -73,4 +73,8 @@ public class BasicLand extends Land {
     public String toString() {
         return name + "\n" + type + "\n" + ability;
     }
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof BasicLand && ((Card) obj).getName().equals(this.getName());
+    }
 }

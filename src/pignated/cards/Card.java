@@ -55,4 +55,8 @@ public abstract class Card implements Serializable {
      */
     public abstract String getName();
 
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Card && ((Card) obj).getName().equals(this.getName());
+    }
 }
