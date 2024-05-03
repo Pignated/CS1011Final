@@ -12,7 +12,7 @@ import pignated.GeneralUse;
  * Class for keywords
  */
 public class Keyword extends Ability {
-    private String keyword;
+    private final String keyword;
     /**
      * Constructor for keywords
      */
@@ -23,9 +23,6 @@ public class Keyword extends Ability {
     @Override
     public String toString() {
         return keyword;
-    }
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
     }
 }
 
